@@ -3,12 +3,18 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:res="clr-namespace:MyPocketAPP.Resx"
+             xmlns:local="clr-namespace:MyPocketAPP;assembly=MyPocketAPP"
              mc:Ignorable="d"
              x:Class="MyPocketAPP.Views.LoginPage"
              Shell.NavBarIsVisible="False">
     <ContentPage.Content>
         <StackLayout Padding="10,0,10,0" VerticalOptions="Center">
-            <Button VerticalOptions="Center" Text="Login" Command="{Binding LoginCommand}"/>
+            <!--<Image Source="{local:ImageResource MyPocketAPP.Resources.Images.ironman.JPG}" WidthRequest="200" HeightRequest="200" />-->
+            <Entry Text="{Binding Login}" Placeholder="{x:Static res:AppCaptions.LoginPage_Username}"/>
+            <Entry Text="{Binding Password}" Placeholder="{x:Static res:AppCaptions.LoginPage_Password}" IsPassword="True"/>
+            <Button VerticalOptions="Center" Text="{x:Static res:AppCaptions.LoginPage_Login}" Command="{Binding LoginCommand}"/>            
+            <Label Text="{Binding ErrorMessage}" TextColor="Red"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

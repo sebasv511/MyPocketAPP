@@ -1,5 +1,4 @@
-﻿using MyPocketAPP.Services;
-using MyPocketAPP.Views;
+﻿using MyPocketAPP.Views;
 using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -12,8 +11,7 @@ namespace MyPocketAPP
         public App()
         {
             InitializeComponent();
-
-            DependencyService.Register<MockDataStore>();
+            
             MainPage = new AppShell();
         }
 
