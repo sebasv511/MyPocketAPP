@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewModels="clr-namespace:MyPocketAPP.ViewModels"
+             xmlns:models="clr-namespace:MyPocketAPP.Data.Models"
+             xmlns:utility="clr-namespace:MyPocketAPP.Utilities"
+             utility:ViewModelLocator.AutoWireViewModel="True"
+             xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
+             x:DataType="viewModels:PocketsViewModel"
+             x:Class="MyPocketAPP.Views.PocketsPage">
+    <ContentPage.Behaviors>
+        <xct:EventToCommandBehavior EventName="Appearing" Command="{Binding AppearingCommand}"/>
+    </ContentPage.Behaviors>
+    <ContentPage.Content>
+        <StackLayout>
+            <CollectionView ItemsSource="{Binding Pockets}"
+                            EmptyView="No Pockets to display">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate x:DataType="models:PocketDetail">
+                        <StackLayout>
+                            <Label Text="{Binding PocketDetailId}"/>
+                            <Label Text="{Binding year}"/>
+                        </StackLayout>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </StackLayout>
+
+    </ContentPage.Content>
+</ContentPage>

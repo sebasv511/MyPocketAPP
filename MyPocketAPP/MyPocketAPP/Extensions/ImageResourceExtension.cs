@@ -7,7 +7,7 @@ using Xamarin.Forms;
 namespace MyPocketAPP
 {
     [ContentProperty(nameof(Source))]
-    internal class ImageResourceExtension
+    public class ImageResourceExtension
     {
         public string Source { get; set; }
 

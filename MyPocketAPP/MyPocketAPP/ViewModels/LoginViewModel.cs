@@ -31,7 +31,7 @@ namespace MyPocketAPP.ViewModels
         {
             if (ValidateFields())
             {
-                await Shell.Current.GoToAsync($"//{nameof(AboutPage)}");
+                await Shell.Current.GoToAsync($"//{nameof(PocketsPage)}");
             }            
         }
 

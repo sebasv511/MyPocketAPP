@@ -11,7 +11,7 @@ namespace MyPocketAPP
         public App()
         {
             InitializeComponent();
-            
+            Startup.Initialize();
             MainPage = new AppShell();
         }
 

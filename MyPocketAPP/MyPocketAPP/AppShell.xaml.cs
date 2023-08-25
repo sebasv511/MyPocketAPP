@@ -11,6 +11,7 @@ namespace MyPocketAPP
         public AppShell()
         {
             InitializeComponent();
+            Routing.RegisterRoute(nameof(PocketsPage), typeof(PocketsPage));
             //Routing.RegisterRoute(nameof(ItemDetailPage), typeof(ItemDetailPage));
             //Routing.RegisterRoute(nameof(NewItemPage), typeof(NewItemPage));
         }
