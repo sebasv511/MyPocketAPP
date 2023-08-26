@@ -1,4 +1,5 @@
 ﻿using MyPocketAPP.Resx;
+using MyPocketAPP.Services;
 using MyPocketAPP.Views;
 using System;
 using System.Collections.Generic;
@@ -8,10 +9,18 @@ using System.Text.RegularExpressions;
 using Xamarin.Forms;
 
 
-namespace MyPocketAPP.ViewModels
+namespace MyPocketAPP.ViewModels 
 {
     public class LoginViewModel : BaseViewModel
     {
+        private readonly IAccountService _accountService;
+
+        public LoginViewModel(IAccountService accountService)
+        {
+            _accountService = accountService;
+            LoginCommand = new Command(OnLoginClicked);
+        }
+
         private string _login;
         private string _password;
         private string _errorMessage;
@@ -22,16 +31,14 @@ namespace MyPocketAPP.ViewModels
 
         public Command LoginCommand { get; }
 
-        public LoginViewModel()
-        {
-            LoginCommand = new Command(OnLoginClicked);
-        }
-
         private async void OnLoginClicked(object obj)
         {
             if (ValidateFields())
             {
-                await Shell.Current.GoToAsync($"//{nameof(PocketsPage)}");
+                if (await _accountService.LoginAsync(_login, _password))
+                {
+                    await Shell.Current.GoToAsync($"//{nameof(PocketsPage)}");
+                }                
             }            
         }
 

@@ -11,5 +11,7 @@ namespace MyPocketAPP.Data.API
     {
         [Get("/Pockets")]
         Task<List<PocketDetail>> GetPockets();
+        [Get("/Years")]
+        Task<List<PocketDetail>> GetPocketYears(long userId);
     }
 }

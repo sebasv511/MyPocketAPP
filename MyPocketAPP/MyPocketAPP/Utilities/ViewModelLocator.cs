@@ -49,6 +49,5 @@ namespace MyPocketAPP.Utilities
                 view.BindingContext = viewModel;
             }
         }
-
     }
 }

@@ -39,6 +39,10 @@ namespace MyPocketAPP
                 .ConfigureHttpClient(c => c.BaseAddress = new Uri(Settings.ApiBaseUri))
                 .AddHttpMessageHandler<BaseAddressHandler>();
 
+            serviceCollection.AddRefitClient<IAccountApi>(refitSettings)
+                .ConfigureHttpClient(c => c.BaseAddress = new Uri(Settings.ApiBaseUri))
+                .AddHttpMessageHandler<BaseAddressHandler>();
+
             containerBuilder.Populate(serviceCollection);
 
             containerBuilder.RegisterType<AppShell>();
@@ -59,7 +63,8 @@ namespace MyPocketAPP
 
             _container = containerBuilder.Build();
             DependencyResolver.ResolveUsing(type => _container.IsRegistered(type) ? _container.Resolve(type) : null);
-        }
+        
+    }
 
         /// <summary>
         /// Initialize the IOC container for Autofac
