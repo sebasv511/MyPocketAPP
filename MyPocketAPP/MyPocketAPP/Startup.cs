@@ -16,9 +16,9 @@ namespace MyPocketAPP
     public static class Startup
     {
         private const string INTERFACE_PREFIX = "I";
-        private const string SERVICES_NAMESPACE = "MyPocketApp.Services";
-        //private const string SINGLE_INSTANCE_SERVICES_NAMESPACE = "MyPocketApp.Services.SingleInstance";
-        private const string VIEW_MODELS_NAMESPACE = "MyPocketApp.ViewModels";
+        private const string SERVICES_NAMESPACE = "MyPocketAPP.Services";
+        //private const string SINGLE_INSTANCE_SERVICES_NAMESPACE = "MyPocketAPP.Services.SingleInstance";
+        private const string VIEW_MODELS_NAMESPACE = "MyPocketAPP.ViewModels";
 
         private static IContainer _container;
 

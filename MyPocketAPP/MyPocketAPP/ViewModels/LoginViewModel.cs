@@ -21,9 +21,9 @@ namespace MyPocketAPP.ViewModels
             LoginCommand = new Command(OnLoginClicked);
         }
 
-        private string _login;
-        private string _password;
-        private string _errorMessage;
+        private string _login = string.Empty;
+        private string _password = string.Empty;
+        private string _errorMessage = string.Empty ;
 
         public string Login { get => _login; set => SetProperty(ref _login, value); }
         public string Password { get => _password; set=> SetProperty(ref _password, value); }
@@ -35,10 +35,14 @@ namespace MyPocketAPP.ViewModels
         {
             if (ValidateFields())
             {
-                if (await _accountService.LoginAsync(_login, _password))
+                if (!await _accountService.LoginAsync(_login, _password))
                 {
-                    await Shell.Current.GoToAsync($"//{nameof(PocketsPage)}");
-                }                
+                    //_errorMessage = AppMessages.LoginPage_WrongCredentials;
+                    await Application.Current.MainPage.DisplayAlert("", AppMessages.LoginPage_WrongCredentials, "Ok");                    
+                    return;
+                }
+
+                await Shell.Current.GoToAsync($"//{nameof(PocketsPage)}");
             }            
         }
 
@@ -48,7 +52,8 @@ namespace MyPocketAPP.ViewModels
 
             if (string.IsNullOrEmpty(Login))
             {
-                ErrorMessage = AppMessages.LoginPage_EmptyLogin;
+                //_errorMessage = AppMessages.LoginPage_EmptyLogin;
+                Application.Current.MainPage.DisplayAlert("", AppMessages.LoginPage_EmptyLogin, "Ok");
                 return false;
             }
 
@@ -62,14 +67,16 @@ namespace MyPocketAPP.ViewModels
                 //User loged with phone
                 if (Login.Length != 10)
                 {
-                    ErrorMessage = AppMessages.LoginPage_InvalidPhoneFormat;
+                    //_errorMessage = AppMessages.LoginPage_InvalidPhoneFormat;
+                    Application.Current.MainPage.DisplayAlert("", AppMessages.LoginPage_InvalidPhoneFormat, "Ok");
                     return false;
                 }
             }
 
             if (string.IsNullOrEmpty(Password))
             {
-                ErrorMessage = AppMessages.LoginPage_EmptyPassword;
+                //_errorMessage = AppMessages.LoginPage_EmptyPassword;
+                Application.Current.MainPage.DisplayAlert("", AppMessages.LoginPage_EmptyPassword, "Ok");
                 return false;
             }
 

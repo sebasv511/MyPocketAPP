@@ -10,6 +10,6 @@ namespace MyPocketAPP.Data.API
     public interface IAccountApi
     {
         [Get("/Account/Login")]
-        Task<HttpResponseMessage> LoginAsync(string userName, string password);
+        Task<HttpResponseMessage> LoginAsync(string login, string password);
     }
 }

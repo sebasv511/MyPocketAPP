@@ -19,11 +19,11 @@ namespace MyPocketAPP.Services
             _appUserSettingService = appUserSettingService;
         }
 
-        public async Task<bool> LoginAsync(string userName, string password)
+        public async Task<bool> LoginAsync(string login, string password)
         {
             try
             {
-                var response = await _accountApi.LoginAsync(userName, password);
+                var response = await _accountApi.LoginAsync(login, password);
 
                 if (response == null || response.StatusCode == System.Net.HttpStatusCode.Unauthorized)
                 {

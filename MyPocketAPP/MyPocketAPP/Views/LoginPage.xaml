@@ -10,13 +10,26 @@
              x:DataType="viewModels:LoginViewModel"
              mc:Ignorable="d"
              x:Class="MyPocketAPP.Views.LoginPage"
+             xmlns:sys="clr-namespace:System;assembly=mscorlib"
              Shell.NavBarIsVisible="False">
     <ContentPage.Content>
         <StackLayout Padding="10,0,10,0" VerticalOptions="Center">
             <!--<Image Source="{local:ImageResource MyPocketAPP.Resources.Images.ironman.JPG}" WidthRequest="200" HeightRequest="200" />-->
-            <Entry Text="{Binding Login}" Placeholder="{x:Static resx:AppCaptions.LoginPage_Username}"/>
-            <Entry Text="{Binding Password}" Placeholder="{x:Static resx:AppCaptions.LoginPage_Password}" IsPassword="True"/>
-            <Button VerticalOptions="Center" Text="{x:Static resx:AppCaptions.LoginPage_Login}" Command="{Binding LoginCommand}"/>            
+            <Entry Text="{Binding Login}" Placeholder="{x:Static resx:AppCaptions.LoginPage_Username}">
+                <Entry.Triggers>
+                    <Trigger TargetType="Entry" Property="Text" Value="{x:Static sys:String.Empty}">
+                        <Setter Property="BackgroundColor" Value="LightGray" />
+                    </Trigger>
+                </Entry.Triggers>
+            </Entry>
+            <Entry Text="{Binding Password}" Placeholder="{x:Static resx:AppCaptions.LoginPage_Password}" IsPassword="True">
+                <Entry.Triggers>
+                    <Trigger TargetType="Entry" Property="Text" Value="{x:Static sys:String.Empty}">
+                        <Setter Property="BackgroundColor" Value="LightGray" />
+                    </Trigger>
+                </Entry.Triggers>
+            </Entry>
+            <Button VerticalOptions="Center" Text="{x:Static resx:AppCaptions.LoginPage_Login}" Command="{Binding LoginCommand}"/>
             <Label Text="{Binding ErrorMessage}" TextColor="Red"/>
         </StackLayout>
     </ContentPage.Content>
