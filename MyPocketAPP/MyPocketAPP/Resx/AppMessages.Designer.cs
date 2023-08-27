@@ -79,11 +79,29 @@ namespace MyPocketAPP.Resx {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to El correo electrónico no tiene un formato válido.
+        /// </summary>
+        internal static string LoginPage_InvalidEmailFormat {
+            get {
+                return ResourceManager.GetString("LoginPage_InvalidEmailFormat", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to El número de celular no tiene un formato válido.
         /// </summary>
         internal static string LoginPage_InvalidPhoneFormat {
             get {
                 return ResourceManager.GetString("LoginPage_InvalidPhoneFormat", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Usuario o contraseña inválido.
+        /// </summary>
+        internal static string LoginPage_WrongCredentials {
+            get {
+                return ResourceManager.GetString("LoginPage_WrongCredentials", resourceCulture);
             }
         }
     }

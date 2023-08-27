@@ -123,7 +123,13 @@
   <data name="LoginPage_EmptyPassword" xml:space="preserve">
     <value>Debe indicar la contraseña</value>
   </data>
+  <data name="LoginPage_InvalidEmailFormat" xml:space="preserve">
+    <value>El correo electrónico no tiene un formato válido</value>
+  </data>
   <data name="LoginPage_InvalidPhoneFormat" xml:space="preserve">
     <value>El número de celular no tiene un formato válido</value>
+  </data>
+  <data name="LoginPage_WrongCredentials" xml:space="preserve">
+    <value>Usuario o contraseña inválido</value>
   </data>
 </root>
